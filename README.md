@@ -1,7 +1,10 @@
-# HealthCareIndustryResearch
+# HealthCare Industry Research
 
 Southeast Asia healthcare market-intelligence site. Built with [vinext](https://github.com/cloudflare/vinext)
 (Next.js App Router on Vite) + React 19, Tailwind CSS 4, and shadcn UI.
+
+The site is fully static — every route is prerendered to HTML at build time
+(`next.config.ts` sets `output: 'export'`). There is no server or API.
 
 ## Local development
 
@@ -13,31 +16,33 @@ npm run dev      # http://localhost:3001
 ## Production build
 
 ```bash
-npm run build    # emits a self-contained Node bundle at dist/standalone/
-npm start        # runs: node dist/standalone/server.js
+npm run build    # prerenders every route into dist/client/
+npm start        # optional: preview the built site (vinext start)
 ```
 
-The server honours `PORT` (default `3000`) and `HOST` (default `0.0.0.0`).
+`npm run build` output is the static folder `dist/client/` (HTML + assets + `404.html`).
 
-## Deploy to Render
+## Deploy
 
-This repo ships a [`render.yaml`](./render.yaml) Blueprint.
+Any static host works. Point it at build command `npm run build` (or `vinext build`)
+and publish directory `dist/client`. Node version is pinned in
+[`.node-version`](./.node-version) (`22.13.0`).
 
-1. Push the repo to GitHub/GitLab.
-2. In Render: **New +** → **Blueprint** → pick this repo.
-3. Render runs `npm ci && npm run build`, then `npm start`, and routes `$PORT` to the service.
+**Vercel** — [`vercel.json`](./vercel.json) is included (`framework: null`,
+`outputDirectory: dist/client`, `cleanUrls`). Import the GitHub repo; no dashboard
+config needed. Do **not** let Vercel auto-detect a framework — the included
+`vercel.json` handles it.
 
-Node version is pinned in [`.node-version`](./.node-version) (`22.13.0`).
-
-Manual setup (without the Blueprint): create a **Web Service**, Runtime **Node**,
-Build Command `npm ci && npm run build`, Start Command `npm start`.
+**Render** — [`render.yaml`](./render.yaml) Blueprint: **New +** → **Blueprint** →
+pick this repo. Creates a static site serving `dist/client` (`/about` is served
+from `about.html` automatically; misses use `404.html`).
 
 ## Scripts
 
-| Script           | Purpose                                  |
-| ---------------- | ---------------------------------------- |
-| `npm run dev`    | Dev server with HMR (port 3001)          |
-| `npm run build`  | Production build → `dist/standalone/`    |
-| `npm start`      | Run the built standalone server          |
-| `npm run lint`   | oxlint                                   |
-| `npm run format` | oxfmt                                    |
+| Script           | Purpose                                   |
+| ---------------- | ----------------------------------------- |
+| `npm run dev`    | Dev server with HMR (port 3001)           |
+| `npm run build`  | Static production build → `dist/client/`  |
+| `npm start`      | Preview the built static site locally     |
+| `npm run lint`   | oxlint                                    |
+| `npm run format` | oxfmt                                     |

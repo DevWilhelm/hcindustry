@@ -1,15 +1,13 @@
 # Render Blueprint — https://render.com/docs/blueprint-spec
-# Deploy: push this repo to GitHub/GitLab, then "New +" > "Blueprint" in Render.
+# Static site: `npm run build` prerenders every route into dist/client/.
+# Deploy: push to GitHub, then "New +" > "Blueprint" in Render.
+# Render serves /about from about.html automatically and uses 404.html for misses.
 services:
   - type: web
     name: healthcare-industry
-    runtime: node
-    plan: free
-    region: singapore
+    runtime: static
     buildCommand: npm ci && npm run build
-    startCommand: npm start
-    healthCheckPath: /
-    autoDeploy: true
+    staticPublishPath: ./dist/client
     envVars:
       - key: NODE_VERSION
         value: 22.13.0
