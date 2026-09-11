@@ -10,7 +10,7 @@ import {
   CtaBand,
   ImagePanel,
   InsightCards,
-  ProviderMap,
+  ProviderSpectrum,
   SectionHeading,
   Shell,
   SolutionGrid,
@@ -140,8 +140,8 @@ export default function Home() {
         </section>
 
         <section className="section">
-          <div className="container split-grid">
-            <div>
+          <div className="container">
+            <div className="provider-landscape-intro">
               <SectionHeading
                 eyebrow="Provider landscape"
                 title="Public population health and private commercial differentiation both matter."
@@ -151,7 +151,7 @@ export default function Home() {
                 View market segments <ArrowRight size={16} />
               </Link>
             </div>
-            <ProviderMap />
+            <ProviderSpectrum />
           </div>
         </section>
 

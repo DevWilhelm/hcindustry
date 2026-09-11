@@ -258,7 +258,7 @@ export function CtaBand() {
           </p>
         </div>
         <Link href="/contact" className="primary-button">
-          Contact us <ArrowRight size={18} />
+          Contact <ArrowRight size={18} />
         </Link>
       </div>
     </section>
@@ -306,28 +306,94 @@ export function ValueChain() {
   );
 }
 
-export function ProviderMap() {
-  const providers = [
-    'Public health systems',
-    'Primary-care clinics',
-    'Premium private hospitals',
-    'Integrated hospital-clinic groups',
-    'Corporate and expat care',
-    'Medical-travel and regional premium care',
-    'Senior and community care',
-  ];
+const providerSpectrum = [
+  {
+    label: 'Public & community',
+    tiles: [
+      {
+        name: 'Public health systems',
+        tag: 'Primary',
+        text: 'Government-funded, universal access.',
+      },
+      {
+        name: 'Primary-care clinics',
+        tag: 'Primary',
+        text: 'First point of contact for everyday care.',
+      },
+      {
+        name: 'Senior and community care',
+        tag: 'Secondary',
+        text: 'Long-term, community-based support for aging populations.',
+      },
+    ],
+  },
+  {
+    label: 'Integrated & private',
+    tiles: [
+      {
+        name: 'Integrated hospital-clinic groups',
+        tag: 'Secondary',
+        text: 'Coordinated networks linking hospitals and clinics.',
+      },
+      {
+        name: 'Premium private hospitals',
+        tag: 'Tertiary',
+        text: 'Private-pay, high-acuity specialist and surgical care.',
+      },
+    ],
+  },
+  {
+    label: 'Premium & cross-border',
+    tiles: [
+      {
+        name: 'Corporate and expat care',
+        tag: 'Secondary',
+        text: 'Employer-sponsored care for corporate and expatriate staff.',
+      },
+      {
+        name: 'Medical-travel and regional premium care',
+        tag: 'Tertiary',
+        text: 'Cross-border patients, premium pricing.',
+      },
+    ],
+  },
+];
 
+export function ProviderSpectrum() {
   return (
-    <div className="provider-map">
-      <div className="axis y-axis">Specialist / tertiary intensity</div>
-      <div className="map-panel">
-        {providers.map((provider, index) => (
-          <span className={`provider-dot dot-${index + 1}`} key={provider}>
-            {provider}
-          </span>
+    <div className="provider-spectrum">
+      <p className="sr-only">
+        A spectrum showing how Southeast Asia&apos;s healthcare providers range
+        from public, population-health models to private, commercially
+        differentiated models, grouped into three bands, in order: public and
+        community care, integrated and private care, and premium and
+        cross-border care.
+      </p>
+      <div className="spectrum-bar" aria-hidden="true">
+        <span className="spectrum-bar-label left">
+          Public population health
+        </span>
+        <span className="spectrum-bar-label right">
+          Private commercial differentiation
+        </span>
+        <span className="spectrum-bar-track" />
+      </div>
+      <div className="spectrum-rows">
+        {providerSpectrum.map((group) => (
+          <div className="spectrum-row" key={group.label}>
+            <h3 className="spectrum-row-label">{group.label}</h3>
+            <div className="spectrum-tiles">
+              {group.tiles.map((tile) => (
+                <article className="spectrum-tile" key={tile.name}>
+                  <span className="spectrum-tag">{tile.tag}</span>
+                  <h4>{tile.name}</h4>
+                  <p>{tile.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
-      <div className="axis x-axis">Public population health -&gt; private commercial differentiation</div>
     </div>
   );
 }

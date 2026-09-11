@@ -227,6 +227,7 @@ nav a:hover,
 .primary-button,
 .secondary-button {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -234,6 +235,7 @@ nav a:hover,
   border-radius: 8px;
   padding: 0 18px;
   font-weight: 720;
+  white-space: nowrap;
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
@@ -496,90 +498,128 @@ p {
   color: #0e7b83;
 }
 
-.provider-map {
-  display: grid;
-  gap: 10px;
+.provider-landscape-intro {
+  margin-bottom: 32px;
 }
 
-.axis {
+.provider-spectrum {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Legend strip: two end labels either side of a gradient rail running from
+   the site's dark green (public) to its light mint accent (private). Purely
+   illustrative — a visually-hidden caption above carries the same meaning
+   for assistive tech, so the strip itself is hidden from it. */
+.spectrum-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 14px;
+  row-gap: 8px;
+}
+
+.spectrum-bar-label {
   color: #607172;
-  font-size: 0.84rem;
-  font-weight: 680;
+  font-size: 0.78rem;
+  font-weight: 760;
+  letter-spacing: 0.02em;
 }
 
-.map-panel {
-  position: relative;
-  min-height: 430px;
-  overflow: hidden;
+.spectrum-bar-label.left {
+  color: #063b42;
+}
+
+.spectrum-bar-label.right {
+  margin-left: auto;
+  color: #0e7b83;
+}
+
+.spectrum-bar-track {
+  flex-basis: 100%;
+  order: 3;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #063b42, #7ce0c3);
+}
+
+.spectrum-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.spectrum-row {
   border: 1px solid #bddbd3;
   border-radius: 8px;
-  background:
-    linear-gradient(90deg, rgb(14 123 131 / 10%), transparent),
-    linear-gradient(0deg, rgb(124 224 195 / 18%), transparent),
-    #ffffff;
+  background: linear-gradient(180deg, #ffffff, #effaf6);
+  padding: 20px;
 }
 
-.map-panel::before,
-.map-panel::after {
-  content: '';
-  position: absolute;
-  inset: 12%;
-  border-left: 1px solid rgb(6 59 66 / 16%);
-  border-bottom: 1px solid rgb(6 59 66 / 16%);
+.spectrum-row-label {
+  margin: 0 0 14px;
+  color: #0e7b83;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.provider-dot {
-  position: absolute;
-  max-width: 190px;
-  border: 1px solid rgb(6 59 66 / 12%);
+.spectrum-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.spectrum-tile {
+  flex: 1 1 240px;
+  max-width: 340px;
+  border: 1px solid rgb(207 226 220 / 86%);
+  border-radius: 8px;
+  background: rgb(255 255 255 / 82%);
+  box-shadow: 0 16px 42px rgb(16 36 38 / 7%);
+  padding: 16px 18px;
+}
+
+.spectrum-tile h4 {
+  margin: 0 0 6px;
+  color: #102426;
+  font-size: 1rem;
+}
+
+.spectrum-tile p {
+  margin: 0;
+  color: #607172;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.spectrum-tag {
+  display: inline-block;
+  margin-bottom: 10px;
   border-radius: 999px;
-  background: #ffffff;
-  padding: 9px 12px;
-  color: #063b42;
-  font-size: 0.82rem;
-  font-weight: 720;
-  box-shadow: 0 10px 24px rgb(16 36 38 / 10%);
+  background: #eef7f3;
+  padding: 3px 10px;
+  color: #0e7b83;
+  font-size: 0.72rem;
+  font-weight: 760;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-/* Scatter positions, tuned so the pills never overlap. Each anchors to a
-   corner; keep vertical gaps between pills that share a side. */
-.dot-1 { left: 2%; bottom: 5%; }    /* Public health systems */
-.dot-2 { left: 22%; bottom: 24%; } /* Primary-care clinics */
-.dot-3 { right: 5%; top: 24%; }    /* Premium private hospitals */
-.dot-4 { left: 42%; top: 46%; }    /* Integrated hospital-clinic groups */
-.dot-5 { right: 3%; bottom: 22%; } /* Corporate and expat care */
-.dot-6 { right: 2%; top: 3%; }     /* Medical-travel and regional premium care */
-.dot-7 { left: 2%; top: 38%; }     /* Senior and community care */
-
-/*
- * Between 981px and 1199px the map panel is squeezed by the two-column
- * split-grid and the fixed-width pills can no longer be scattered without
- * colliding. Fall back to a simple wrapping list of pills (also used on
- * phones). Above 1200px, and at <=980px where the panel goes full width,
- * the scatter above is used.
- */
-@media (max-width: 1199px) {
-  .provider-map .axis {
-    display: none;
+@media (max-width: 680px) {
+  .spectrum-tiles {
+    flex-direction: column;
   }
 
-  .map-panel {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    gap: 10px;
-    min-height: 0;
-    padding: 16px;
-  }
-
-  .map-panel::before,
-  .map-panel::after {
-    display: none;
-  }
-
-  .provider-dot {
-    position: static;
+  .spectrum-tile {
+    flex: none;
     max-width: none;
+  }
+
+  .spectrum-bar-label.right {
+    margin-left: 0;
   }
 }
 
@@ -852,9 +892,13 @@ p {
     font-size: clamp(2.2rem, 12vw, 3.6rem);
   }
 
-  .hero-actions,
-  .cta-inner {
+  .hero-actions {
     align-items: stretch;
+    flex-direction: column;
+  }
+
+  .cta-inner {
+    align-items: flex-start;
     flex-direction: column;
   }
 
@@ -868,9 +912,5 @@ p {
   .footer-grid,
   .value-chain {
     grid-template-columns: 1fr;
-  }
-
-  .provider-dot {
-    font-size: 0.76rem;
   }
 }
