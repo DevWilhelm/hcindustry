@@ -23,7 +23,6 @@ export const navItems = [
   { href: '/solutions', label: 'Solutions' },
   { href: '/southeast-asia-healthcare-outlook', label: 'SEA Outlook' },
   { href: '/market-segments', label: 'Market Segments' },
-  { href: '/insights', label: 'Insights' },
   { href: '/about', label: 'About' },
 ];
 
@@ -180,7 +179,6 @@ export function Footer() {
         </div>
         <div>
           <h3>Company</h3>
-          <Link href="/insights">Insights</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
         </div>
