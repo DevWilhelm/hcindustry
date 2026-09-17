@@ -1,5 +1,10 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
+import { ContactForm } from './contact-form';
+import { SiteNav } from './site-nav';
+import { markets } from '@/lib/markets-data';
+import { insights } from '@/lib/insights-data';
+import { slugify } from '@/lib/utils';
 import {
   Activity,
   ArrowRight,
@@ -18,11 +23,26 @@ import {
   UsersRound,
 } from 'lucide-react';
 
-export const navItems = [
+export type NavItem = {
+  href: string;
+  label: string;
+  children?: { href: string; label: string; flag?: string }[];
+};
+
+export const navItems: NavItem[] = [
   { href: '/', label: 'Home' },
   { href: '/solutions', label: 'Solutions' },
   { href: '/southeast-asia-healthcare-outlook', label: 'SEA Outlook' },
   { href: '/market-segments', label: 'Market Segments' },
+  {
+    href: '/markets',
+    label: 'Markets',
+    children: markets.map((market) => ({
+      href: `/markets/${market.slug}`,
+      label: market.countryName,
+      flag: market.flag,
+    })),
+  },
   { href: '/about', label: 'About' },
 ];
 
@@ -111,24 +131,6 @@ export const segments = [
   },
 ];
 
-export const insights = [
-  {
-    title: 'Southeast Asia Healthcare Sector Outlook',
-    topic: 'Market outlook',
-    text: 'A regional view of demand, affordability, provider capacity, digital health, policy, and investment signals.',
-  },
-  {
-    title: 'How Aging Is Reshaping Healthcare Demand',
-    topic: 'Aging care',
-    text: 'Why chronic disease, home care, rehab, and senior services are becoming strategic growth areas.',
-  },
-  {
-    title: 'Digital Health And AI In Southeast Asia Care Delivery',
-    topic: 'Digital health',
-    text: 'Where AI, telehealth, interoperable records, and workflow automation can improve healthcare productivity.',
-  },
-];
-
 export function Logo() {
   return (
     <Link href="/" className="logo" aria-label="HealthCare Industry Research home">
@@ -145,18 +147,34 @@ export function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Logo />
-        <nav aria-label="Main navigation">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href}>
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <SiteNav navItems={navItems} />
         <Link href="/contact" className="header-cta">
           Contact
         </Link>
       </div>
     </header>
+  );
+}
+
+export function ContactSection() {
+  return (
+    <section className="section" id="contact-form">
+      <div className="container contact-layout">
+        <div className="contact-note">
+          <h2>Inquiry types</h2>
+          <p>
+            Use the form for market research, digital health strategy,
+            provider landscape questions, aging care opportunities,
+            investment research, or partnership inquiries.
+          </p>
+          <p>
+            No PDF download is offered on this website. Source documents are
+            used only as internal reference material.
+          </p>
+        </div>
+        <ContactForm />
+      </div>
+    </section>
   );
 }
 
@@ -176,6 +194,7 @@ export function Footer() {
           <Link href="/solutions">Solutions</Link>
           <Link href="/southeast-asia-healthcare-outlook">SEA Outlook</Link>
           <Link href="/market-segments">Market Segments</Link>
+          <Link href="/markets">Markets</Link>
         </div>
         <div>
           <h3>Company</h3>
@@ -194,11 +213,18 @@ export function Footer() {
   );
 }
 
-export function Shell({ children }: { children: ReactNode }) {
+export function Shell({
+  children,
+  showContactSection = true,
+}: {
+  children: ReactNode;
+  showContactSection?: boolean;
+}) {
   return (
     <>
       <Header />
       {children}
+      {showContactSection ? <ContactSection /> : null}
       <Footer />
     </>
   );
@@ -208,10 +234,12 @@ export function PageHero({
   eyebrow,
   title,
   text,
+  cta,
 }: {
   eyebrow: string;
   title: string;
   text: string;
+  cta?: { label: string; href: string };
 }) {
   return (
     <section className="page-hero">
@@ -219,6 +247,11 @@ export function PageHero({
         <p className="eyebrow">{eyebrow}</p>
         <h1>{title}</h1>
         <p>{text}</p>
+        {cta ? (
+          <Link href={cta.href} className="primary-button hero-cta">
+            {cta.label} <ArrowRight size={18} />
+          </Link>
+        ) : null}
       </div>
     </section>
   );
@@ -269,7 +302,7 @@ export function SolutionGrid() {
       {solutions.map((solution) => {
         const Icon = solution.icon;
         return (
-          <article className="info-card" key={solution.title}>
+          <article className="info-card" id={slugify(solution.title)} key={solution.title}>
             <Icon size={28} />
             <h3>{solution.title}</h3>
             <p>{solution.text}</p>
@@ -396,15 +429,15 @@ export function ProviderSpectrum() {
   );
 }
 
-export function InsightCards() {
+export function InsightCards({ items = insights.slice(0, 3) }: { items?: typeof insights } = {}) {
   return (
     <div className="card-grid three">
-      {insights.map((insight) => (
-        <article className="insight-card" key={insight.title}>
+      {items.map((insight) => (
+        <article className="insight-card" id={insight.slug} key={insight.slug}>
           <span>{insight.topic}</span>
           <h3>{insight.title}</h3>
-          <p>{insight.text}</p>
-          <Link href="/insights">
+          <p>{insight.summary}</p>
+          <Link href={`/insights/${insight.slug}`}>
             Read note <ArrowRight size={16} />
           </Link>
         </article>

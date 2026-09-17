@@ -5,6 +5,7 @@ import {
   SectionHeading,
   Shell,
 } from '@/components/site';
+import { insights } from '@/lib/insights-data';
 
 const topics = [
   'Southeast Asia healthcare outlook',
@@ -28,7 +29,7 @@ export default function InsightsPage() {
         <section className="section">
           <div className="container">
             <SectionHeading title="Featured notes" />
-            <InsightCards />
+            <InsightCards items={insights} />
           </div>
         </section>
 

@@ -6,6 +6,8 @@ import {
   ValueChain,
   outlookBlocks,
 } from '@/components/site';
+import { LinkCardGrid } from '@/components/market-sections';
+import { markets } from '@/lib/markets-data';
 
 export default function OutlookPage() {
   return (
@@ -64,6 +66,25 @@ export default function OutlookPage() {
                 <p>{text}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="section muted-section">
+          <div className="container">
+            <SectionHeading
+              eyebrow="Country detail"
+              title="Explore by market"
+              text="This regional outlook sets the macro context. Each Southeast Asian market has its own provider, payer, regulatory and digital-health structure."
+            />
+            <LinkCardGrid
+              columns={4}
+              items={markets.map((market) => ({
+                title: `${market.flag} ${market.countryName}`,
+                text: market.themeLine,
+                href: `/markets/${market.slug}`,
+                linkLabel: 'View market',
+              }))}
+            />
           </div>
         </section>
 

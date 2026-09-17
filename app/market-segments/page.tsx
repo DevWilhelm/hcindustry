@@ -5,6 +5,7 @@ import {
   Shell,
   segments,
 } from '@/components/site';
+import { slugify } from '@/lib/utils';
 
 export default function MarketSegmentsPage() {
   return (
@@ -24,7 +25,7 @@ export default function MarketSegmentsPage() {
             />
             <div className="segment-grid">
               {segments.map((segment) => (
-                <article key={segment.title}>
+                <article id={slugify(segment.title)} key={segment.title}>
                   <h3>{segment.title}</h3>
                   <div>
                     <span>Need</span>
