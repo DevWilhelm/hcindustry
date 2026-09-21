@@ -59,6 +59,8 @@ export type LinkCardItem = {
   href: string;
   eyebrow?: string;
   linkLabel?: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 export function LinkCardGrid({
@@ -71,7 +73,12 @@ export function LinkCardGrid({
   return (
     <div className={`card-grid ${columnWord[columns]}`}>
       {items.map((item) => (
-        <article className="insight-card" key={item.title}>
+        <article className={item.image ? 'insight-card has-media' : 'insight-card'} key={item.title}>
+          {item.image ? (
+            <div className="card-media">
+              <img src={item.image} alt={item.imageAlt ?? ''} loading="lazy" />
+            </div>
+          ) : null}
           {item.eyebrow ? <span>{item.eyebrow}</span> : null}
           <h3>{item.title}</h3>
           <p>{item.text}</p>

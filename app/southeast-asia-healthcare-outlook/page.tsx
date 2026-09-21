@@ -83,6 +83,8 @@ export default function OutlookPage() {
                 text: market.themeLine,
                 href: `/markets/${market.slug}`,
                 linkLabel: 'View market',
+                image: market.image,
+                imageAlt: market.imageAlt,
               }))}
             />
           </div>

@@ -8,6 +8,7 @@ import {
 } from '@/components/market-sections';
 import {
   CtaBand,
+  ImagePanel,
   PageHero,
   SectionHeading,
   Shell,
@@ -75,6 +76,8 @@ function relatedInsights(titles: string[]): LinkCardItem[] {
       href: `/insights/${insight.slug}`,
       eyebrow: insight.topic,
       linkLabel: 'Read note',
+      image: insight.image,
+      imageAlt: insight.imageAlt,
     }));
 }
 
@@ -143,6 +146,16 @@ export default async function CountryMarketPage({
           text={market.heroDescription}
           cta={{ label: 'Discuss a Research Need', href: '/contact' }}
         />
+
+        <section className="section market-photo-section">
+          <div className="container narrow">
+            <ImagePanel
+              src={market.image}
+              alt={market.imageAlt}
+              caption={`${market.countryName}: a snapshot of the market this page covers.`}
+            />
+          </div>
+        </section>
 
         <section className="section">
           <div className="container">
@@ -262,6 +275,8 @@ export default async function CountryMarketPage({
                 text: country.themeLine,
                 href: `/markets/${country.slug}`,
                 linkLabel: 'View market',
+                image: country.image,
+                imageAlt: country.imageAlt,
               }))}
             />
           </div>

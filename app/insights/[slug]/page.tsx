@@ -5,7 +5,15 @@ import {
   LinkCardGrid,
   type LinkCardItem,
 } from '@/components/market-sections';
-import { CtaBand, PageHero, SectionHeading, Shell, segments, solutions } from '@/components/site';
+import {
+  CtaBand,
+  ImagePanel,
+  PageHero,
+  SectionHeading,
+  Shell,
+  segments,
+  solutions,
+} from '@/components/site';
 import { getInsightBySlug, insights, otherInsights } from '@/lib/insights-data';
 import { getMarketBySlug } from '@/lib/markets-data';
 import { SITE_URL } from '@/lib/site-config';
@@ -41,6 +49,8 @@ function relatedMarkets(slugs: string[] = []): LinkCardItem[] {
       text: market.themeLine,
       href: `/markets/${market.slug}`,
       linkLabel: 'View market',
+      image: market.image,
+      imageAlt: market.imageAlt,
     }));
 }
 
@@ -121,6 +131,12 @@ export default async function InsightArticlePage({
           cta={{ label: 'Discuss a Research Need', href: '/contact' }}
         />
 
+        <section className="section market-photo-section">
+          <div className="container narrow">
+            <ImagePanel src={insight.image} alt={insight.imageAlt} caption={insight.eyebrow} />
+          </div>
+        </section>
+
         {insight.sections.map((section, index) => (
           <section
             className={index % 2 === 0 ? 'section' : 'section muted-section'}
@@ -174,6 +190,8 @@ export default async function InsightArticlePage({
                   href: `/insights/${article.slug}`,
                   eyebrow: article.topic,
                   linkLabel: 'Read note',
+                  image: article.image,
+                  imageAlt: article.imageAlt,
                 }))}
               />
             </div>

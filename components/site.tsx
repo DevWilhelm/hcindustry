@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { ContactForm } from './contact-form';
 import { SiteNav } from './site-nav';
+import { ScrollReveal } from './scroll-reveal';
 import { markets } from '@/lib/markets-data';
 import { insights } from '@/lib/insights-data';
 import { slugify } from '@/lib/utils';
@@ -51,31 +52,49 @@ export const solutions = [
     icon: LineChart,
     title: 'Healthcare Market Strategy',
     text: 'Market sizing, opportunity mapping, competitor review, and strategic entry decisions across SEA healthcare markets.',
+    image:
+      'https://images.unsplash.com/photo-1581091877018-dac6a371d50f?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Two colleagues discussing strategy at a whiteboard',
   },
   {
     icon: Building2,
     title: 'Provider Landscape Research',
     text: 'Public systems, private providers, clinic networks, insurers, corporate care, and regional patient demand.',
+    image:
+      'https://images.unsplash.com/photo-1769147555720-71fc71bfc216?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Modern hospital building exterior',
   },
   {
     icon: Network,
     title: 'Digital Health Intelligence',
     text: 'AI, telehealth, interoperability, health data, workflow automation, and patient engagement trends.',
+    image:
+      'https://images.unsplash.com/photo-1758691462743-f9fc9e430d39?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Doctor consulting a patient over a video call on a laptop',
   },
   {
     icon: HeartPulse,
     title: 'Aging Care And Chronic Care',
     text: 'Senior care, rehab, home care, dementia care, preventive care, and community-based service models.',
+    image:
+      'https://images.unsplash.com/photo-1765896387387-0538bc9f997e?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Nurse smiling with an elderly patient in a care room',
   },
   {
     icon: ShieldCheck,
     title: 'Regulatory And Policy Monitoring',
     text: 'Licensing, health-data governance, AI governance, cybersecurity, medical-device rules, and market access.',
+    image:
+      'https://images.unsplash.com/photo-1652787542567-f86c0b4c0269?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'A stethoscope resting on a notebook beside a laptop',
   },
   {
     icon: CircleDollarSign,
     title: 'Investment And Partnership Research',
     text: 'Sector outlooks, market thesis support, partnership screening, and risk analysis for strategic decisions.',
+    image:
+      'https://images.unsplash.com/photo-1758518731706-be5d5230e5a5?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Diverse business team collaborating in a modern office',
   },
 ];
 
@@ -222,6 +241,7 @@ export function Shell({
 }) {
   return (
     <>
+      <ScrollReveal />
       <Header />
       {children}
       {showContactSection ? <ContactSection /> : null}
@@ -302,8 +322,13 @@ export function SolutionGrid() {
       {solutions.map((solution) => {
         const Icon = solution.icon;
         return (
-          <article className="info-card" id={slugify(solution.title)} key={solution.title}>
-            <Icon size={28} />
+          <article className="info-card has-media" id={slugify(solution.title)} key={solution.title}>
+            <div className="card-media">
+              <img src={solution.image} alt={solution.imageAlt} loading="lazy" />
+            </div>
+            <span className="card-icon-chip">
+              <Icon size={22} />
+            </span>
             <h3>{solution.title}</h3>
             <p>{solution.text}</p>
           </article>
@@ -433,7 +458,10 @@ export function InsightCards({ items = insights.slice(0, 3) }: { items?: typeof 
   return (
     <div className="card-grid three">
       {items.map((insight) => (
-        <article className="insight-card" id={insight.slug} key={insight.slug}>
+        <article className="insight-card has-media" id={insight.slug} key={insight.slug}>
+          <div className="card-media">
+            <img src={insight.image} alt={insight.imageAlt} loading="lazy" />
+          </div>
           <span>{insight.topic}</span>
           <h3>{insight.title}</h3>
           <p>{insight.summary}</p>

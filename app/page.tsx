@@ -57,9 +57,9 @@ export default function Home() {
               </div>
             </div>
             <ImagePanel
-              src="/images/sea-healthcare-hero.png"
-              alt="Healthcare and strategy team reviewing Southeast Asia digital health network data"
-              caption="Generated healthcare imagery for regional market intelligence."
+              src="https://images.unsplash.com/photo-1653566031535-bcf33e1c2893?auto=format&fit=crop&w=1200&q=80"
+              alt="Healthcare and strategy team reviewing regional market data around a table"
+              caption="Strategy and research teams working through Southeast Asia healthcare data."
             />
           </div>
         </section>

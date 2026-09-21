@@ -1192,3 +1192,245 @@ p {
     transition: none;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Card media (Unsplash imagery on solution / insight / link cards)   */
+/* ------------------------------------------------------------------ */
+
+.info-card.has-media,
+.insight-card.has-media {
+  padding-top: 0;
+  overflow: hidden;
+}
+
+.card-media {
+  overflow: hidden;
+  margin: 0 0 18px;
+  aspect-ratio: 16 / 10;
+  background: #eef7f3;
+}
+
+.info-card.has-media .card-media {
+  border-radius: 8px 8px 0 0;
+}
+
+.insight-card.has-media .card-media {
+  margin: -24px -24px 18px;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.info-card.has-media {
+  padding: 0 0 24px;
+}
+
+.info-card.has-media h3,
+.info-card.has-media p {
+  padding-inline: 24px;
+}
+
+.card-icon-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin: -41px 0 14px 20px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 12px 26px rgb(16 36 38 / 20%);
+  color: #0e7b83;
+  position: relative;
+  z-index: 1;
+}
+
+.card-icon-chip svg {
+  margin-bottom: 0;
+}
+
+.info-card:hover .card-media img,
+.insight-card:hover .card-media img {
+  transform: scale(1.07);
+}
+
+/* Card hover elevation (applies to icon cards, insight cards, and spectrum tiles) */
+.info-card,
+.insight-card,
+.spectrum-tile {
+  transition: box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.info-card:hover,
+.insight-card:hover,
+.spectrum-tile:hover {
+  box-shadow: 0 26px 60px rgb(16 36 38 / 14%);
+  border-color: rgb(14 123 131 / 40%);
+}
+
+.chain-step {
+  transition: box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.chain-step:hover {
+  box-shadow: 0 20px 44px rgb(16 36 38 / 12%);
+  border-color: #0e7b83;
+}
+
+/* Micro-interaction: arrow icons nudge forward on hover */
+.primary-button svg,
+.secondary-button svg,
+.header-cta svg,
+.text-link svg,
+.insight-card a svg {
+  transition: transform 220ms ease;
+}
+
+.primary-button:hover svg,
+.secondary-button:hover svg,
+.header-cta:hover svg,
+.text-link:hover svg,
+.insight-card a:hover svg {
+  transform: translateX(3px);
+}
+
+/* Underline sweep on primary nav links */
+.primary-nav > a {
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.primary-nav > a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: #0e7b83;
+  transition: right 220ms ease;
+}
+
+.primary-nav > a:hover::after {
+  right: 0;
+}
+
+/* Hero and page-hero entrance animation (plays on load, not scroll-gated) */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-copy > * {
+  animation: reveal-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-copy > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+.hero-copy > *:nth-child(2) {
+  animation-delay: 90ms;
+}
+.hero-copy > *:nth-child(3) {
+  animation-delay: 180ms;
+}
+.hero-copy > *:nth-child(4) {
+  animation-delay: 270ms;
+}
+.hero-copy > *:nth-child(5) {
+  animation-delay: 360ms;
+}
+
+.hero .image-panel,
+.page-hero .primary-button {
+  animation: reveal-in 800ms cubic-bezier(0.16, 1, 0.3, 1) 200ms both;
+}
+
+.market-photo-section {
+  padding: 40px 0 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Scroll reveal: progressively enhanced, gated behind html.js so     */
+/* content is fully visible without JavaScript.                      */
+/* ------------------------------------------------------------------ */
+
+.js .info-card,
+.js .insight-card,
+.js .signal-grid article,
+.js .segment-grid article,
+.js .outlook-grid article,
+.js .question-grid article,
+.js .spectrum-tile,
+.js .chain-step,
+.js .metric-stack article,
+.js .image-panel,
+.js .section-heading {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js .info-card.in-view,
+.js .insight-card.in-view,
+.js .signal-grid article.in-view,
+.js .segment-grid article.in-view,
+.js .outlook-grid article.in-view,
+.js .question-grid article.in-view,
+.js .spectrum-tile.in-view,
+.js .chain-step.in-view,
+.js .metric-stack article.in-view,
+.js .image-panel.in-view,
+.js .section-heading.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* The hero image already animates in on load; keep it out of the
+   scroll-gated hidden state so the two animations don't fight. */
+.js .hero .image-panel {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy > *,
+  .hero .image-panel,
+  .page-hero .primary-button {
+    animation: none;
+  }
+
+  .js .info-card,
+  .js .insight-card,
+  .js .signal-grid article,
+  .js .segment-grid article,
+  .js .outlook-grid article,
+  .js .question-grid article,
+  .js .spectrum-tile,
+  .js .chain-step,
+  .js .metric-stack article,
+  .js .image-panel,
+  .js .section-heading {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .card-media img {
+    transition: none;
+  }
+}

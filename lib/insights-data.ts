@@ -9,6 +9,8 @@ export type Insight = {
   topic: string;
   eyebrow: string;
   summary: string;
+  image: string;
+  imageAlt: string;
   metaTitle: string;
   metaDescription: string;
   publishedLabel: string;
@@ -24,6 +26,8 @@ export const insights: Insight[] = [
     title: 'Southeast Asia Healthcare Sector Outlook',
     topic: 'Market outlook',
     eyebrow: 'Market Outlook',
+    image: 'https://images.unsplash.com/photo-1609508845212-b4190e9351c2?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Aerial view of a Southeast Asian city skyline during daytime',
     summary:
       "A regional view of demand, affordability, provider capacity, digital health, policy, and investment signals shaping Southeast Asia's healthcare sector.",
     metaTitle: 'Southeast Asia Healthcare Sector Outlook | HealthCare Industry Research',
@@ -75,6 +79,8 @@ export const insights: Insight[] = [
     title: 'How Aging Is Reshaping Healthcare Demand',
     topic: 'Aging care',
     eyebrow: 'Aging Care',
+    image: 'https://images.unsplash.com/photo-1758691462482-2b6ccbaefa6e?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Doctor consulting with an elderly patient and a family member',
     summary:
       'Why chronic disease, home care, rehabilitation, and senior services are becoming strategic growth areas across Southeast Asia.',
     metaTitle: 'How Aging Is Reshaping Healthcare Demand In Southeast Asia | HealthCare Industry Research',
@@ -113,6 +119,8 @@ export const insights: Insight[] = [
     title: 'Digital Health And AI In Southeast Asia Care Delivery',
     topic: 'Digital health',
     eyebrow: 'Digital Health',
+    image: 'https://images.unsplash.com/photo-1758691462668-046fd85ceac9?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Doctor examining a scan on a tablet at a desk',
     summary:
       'Where AI, telehealth, interoperable records, and workflow automation can improve healthcare access and productivity across Southeast Asia.',
     metaTitle: 'Digital Health And AI In Southeast Asia Care Delivery | HealthCare Industry Research',
@@ -150,6 +158,8 @@ export const insights: Insight[] = [
     title: "Thailand's Universal Coverage Scheme And Its Two-Speed Healthcare System",
     topic: 'Healthcare financing',
     eyebrow: 'Thailand · Healthcare Financing',
+    image: 'https://images.unsplash.com/photo-1758115271914-6d5d8bb3d277?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Red tuk-tuks passing a modern building in Bangkok, Thailand',
     summary:
       "How Thailand's near-universal public coverage and internationally established private hospital sector create two distinct — and differently pressured — healthcare economies.",
     metaTitle:
@@ -196,6 +206,8 @@ export const insights: Insight[] = [
     title: "Singapore's Super-Aged Transition: Healthier SG And The Aging-Care Investment Case",
     topic: 'Aging care',
     eyebrow: 'Singapore · Aging Care',
+    image: 'https://images.unsplash.com/photo-1765896387398-1e1ae8d2eb85?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Nurse in scrubs leaning toward an elderly person in a chair',
     summary:
       "Singapore entered super-aged status in 2026. Here's how Healthier SG, MediShield reform, and public capacity expansion are responding — and where that leaves the aging-care investment case.",
     metaTitle:
@@ -242,6 +254,8 @@ export const insights: Insight[] = [
     title: "Vietnam's Private Hospital Chainization",
     topic: 'Provider landscape',
     eyebrow: 'Vietnam · Provider Landscape',
+    image: 'https://images.unsplash.com/photo-1602646994030-464f98de5e5c?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Aerial view of city buildings in Vietnam during daytime',
     summary:
       "Vietnam's private hospital sector is consolidating from isolated urban hospitals into branded, multi-site networks. Here's what is driving that shift and what it means for market entry.",
     metaTitle: "Vietnam's Private Hospital Chainization | HealthCare Industry Research",
@@ -287,6 +301,8 @@ export const insights: Insight[] = [
     title: "Indonesia's SATUSEHAT And The Archipelago Access Gap",
     topic: 'Digital health',
     eyebrow: 'Indonesia · Digital Health',
+    image: 'https://images.unsplash.com/photo-1686061592689-312bbfb5c055?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Computer screen displaying a data bar chart',
     summary:
       "Indonesia's national digital-health platform is being built to do something most countries don't need digital health for: closing a geographic access gap across more than seventeen thousand islands.",
     metaTitle: "Indonesia's SATUSEHAT And The Archipelago Access Gap | HealthCare Industry Research",

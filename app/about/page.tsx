@@ -1,6 +1,7 @@
 import {
   CtaBand,
   CheckList,
+  ImagePanel,
   PageHero,
   SectionHeading,
   Shell,
@@ -20,14 +21,19 @@ export default function AboutPage() {
 
         <section className="section">
           <div className="container split-grid">
+            <ImagePanel
+              src="https://images.unsplash.com/photo-1758691463203-cce9d415b2b5?auto=format&fit=crop&w=1200&q=80"
+              alt="Two healthcare researchers reviewing findings together on a tablet"
+              caption="A practical, evidence-led approach to healthcare research."
+            />
             <div>
               <SectionHeading
                 eyebrow="What we study"
                 title="The markets, systems, and signals that shape healthcare growth."
                 text="The work focuses on provider landscapes, digital health adoption, aging care, policy and regulation, investment logic, and partnership opportunities."
               />
+              <CheckList items={researchPrinciples} />
             </div>
-            <CheckList items={researchPrinciples} />
           </div>
         </section>
 

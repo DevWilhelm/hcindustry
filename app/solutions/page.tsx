@@ -40,9 +40,9 @@ export default function SolutionsPage() {
         <section className="section muted-section">
           <div className="container split-grid">
             <ImagePanel
-              src="/images/sea-research-room.png"
-              alt="Healthcare research team reviewing Southeast Asia market maps and digital health dashboards"
-              caption="Generated visual: research teams using regional provider and digital health intelligence."
+              src="https://images.unsplash.com/photo-1758873271740-f1fd6c6f1524?auto=format&fit=crop&w=1200&q=80"
+              alt="Research team collaborating around a table with printed charts"
+              caption="Research teams working through regional provider and digital health intelligence."
             />
             <div>
               <SectionHeading

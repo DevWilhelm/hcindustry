@@ -24,6 +24,8 @@ export type MarketCountry = {
   flag: string;
   eyebrow: string;
   themeLine: string;
+  image: string;
+  imageAlt: string;
   heroTitle: string;
   heroDescription: string;
   metaTitle: string;
@@ -49,6 +51,8 @@ export const markets: MarketCountry[] = [
     flag: '🇸🇬',
     eyebrow: 'Singapore Healthcare Market',
     themeLine: 'Advanced Care, Digital Integration and Aging Demand',
+    image: 'https://images.unsplash.com/photo-1569288063643-5d29ad64df09?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Marina Bay Sands skyline in Singapore during daytime',
     heroTitle: 'Healthcare Industry and Market Outlook in Singapore',
     heroDescription:
       "Singapore combines a well-resourced public healthcare system with premium private hospitals, a regional referral role for complex specialist care, and one of the region's most developed digital-health and health-data environments. Demand is increasingly shaped by an aging population, a rising chronic-disease burden, and continued investment in medical technology and biomedical research.",
@@ -201,6 +205,8 @@ export const markets: MarketCountry[] = [
     flag: '🇲🇾',
     eyebrow: 'Malaysia Healthcare Market',
     themeLine: 'Private Healthcare, Medical Tourism and MedTech Growth',
+    image: 'https://images.unsplash.com/photo-1740707590077-ce920ec56441?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Historic clock tower building in Kuala Lumpur, Malaysia',
     heroTitle: 'Healthcare Industry and Market Outlook in Malaysia',
     heroDescription:
       "Malaysia pairs a large public healthcare system with an internationally competitive private hospital sector that has built a significant medical-tourism business on a cost-quality positioning. Growth is increasingly concentrated in private-sector capacity, diagnostics, medical-device distribution, and a gradually digitalising healthcare system.",
@@ -352,6 +358,8 @@ export const markets: MarketCountry[] = [
     flag: '🇹🇭',
     eyebrow: 'Thailand Healthcare Market',
     themeLine: 'Medical Tourism, Private Care and Aging Healthcare Demand',
+    image: 'https://images.unsplash.com/photo-1758115271914-6d5d8bb3d277?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Red tuk-tuks passing a modern building in Bangkok, Thailand',
     heroTitle: 'Healthcare Industry and Market Outlook in Thailand',
     heroDescription:
       "Thailand combines near-universal public healthcare coverage with one of Southeast Asia's most internationally established private hospital sectors. Large public capacity, a mature medical-tourism industry, and a fast-aging population are together reshaping demand across acute care, rehabilitation, wellness and digital health.",
@@ -504,6 +512,8 @@ export const markets: MarketCountry[] = [
     flag: '🇻🇳',
     eyebrow: 'Vietnam Healthcare Market',
     themeLine: 'Capacity Expansion, Private Healthcare and Modernization',
+    image: 'https://images.unsplash.com/photo-1602646994030-464f98de5e5c?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Aerial view of city buildings in Vietnam during daytime',
     heroTitle: 'Healthcare Industry and Market Outlook in Vietnam',
     heroDescription:
       "Vietnam's healthcare system is expanding under sustained pressure from rising demand, growing insurance coverage, and a public hospital network working to modernise capacity and technology. Private healthcare, diagnostics, medical devices and pharmaceuticals are among the fastest-growing parts of the market as household healthcare spending increases.",
@@ -656,6 +666,8 @@ export const markets: MarketCountry[] = [
     flag: '🇮🇩',
     eyebrow: 'Indonesia Healthcare Market',
     themeLine: 'Healthcare Access, Capacity Expansion and Digital Scale',
+    image: 'https://images.unsplash.com/photo-1696832204235-5676c7ee9105?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'High-rise buildings along the waterfront in Indonesia',
     heroTitle: 'Healthcare Industry and Market Outlook in Indonesia',
     heroDescription:
       "Indonesia's healthcare market is defined by scale and geography: a very large population covered through the national BPJS Kesehatan insurance scheme, spread across thousands of islands with uneven provider density. Expanding hospital capacity, growing private healthcare, and digital health are central to closing access gaps between urban centres and outer regions.",
@@ -808,6 +820,8 @@ export const markets: MarketCountry[] = [
     flag: '🇵🇭',
     eyebrow: 'Philippines Healthcare Market',
     themeLine: 'Healthcare Access, Private Growth and Digital Expansion',
+    image: 'https://images.unsplash.com/photo-1598258710957-db8614c2881e?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'City skyline under a blue sky in the Philippines',
     heroTitle: 'Healthcare Industry and Market Outlook in the Philippines',
     heroDescription:
       'The Philippines combines a national health-insurance programme administered by PhilHealth with a significant private hospital sector concentrated in Metro Manila and other major urban centres. Healthcare access remains uneven across a geographically dispersed archipelago, and digital health and telemedicine are increasingly positioned as tools to extend reach beyond the largest cities.',
@@ -945,6 +959,8 @@ export const markets: MarketCountry[] = [
     flag: '🇲🇲',
     eyebrow: 'Myanmar Healthcare Market',
     themeLine: 'Healthcare Access and Provider Capacity Under Evolving Conditions',
+    image: 'https://images.unsplash.com/photo-1585726685010-1b5c0d80aed7?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Gold pagoda under white clouds in Myanmar',
     heroTitle: 'Healthcare Industry and Market Outlook in Myanmar',
     heroDescription:
       'Healthcare accessibility and provider capacity in Myanmar remain important considerations for any organization evaluating this market. Current operating conditions can vary significantly and require market-specific validation; this page provides a structural orientation to the healthcare system rather than current market figures or forecasts.',
