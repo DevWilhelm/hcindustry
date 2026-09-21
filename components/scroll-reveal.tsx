@@ -14,6 +14,9 @@ const REVEAL_SELECTOR = [
   '.metric-stack article',
   '.image-panel',
   '.section-heading',
+  '.comparison-table tbody tr',
+  '.challenge-list span',
+  '.topic-list span',
 ].join(', ');
 
 export function ScrollReveal() {

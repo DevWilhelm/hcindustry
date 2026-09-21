@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ContactForm } from './contact-form';
 import { SiteNav } from './site-nav';
 import { ScrollReveal } from './scroll-reveal';
+import { ScrollFx } from './scroll-fx';
 import { markets } from '@/lib/markets-data';
 import { insights } from '@/lib/insights-data';
 import { slugify } from '@/lib/utils';
@@ -32,9 +33,7 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   { href: '/', label: 'Home' },
-  { href: '/solutions', label: 'Solutions' },
-  { href: '/southeast-asia-healthcare-outlook', label: 'SEA Outlook' },
-  { href: '/market-segments', label: 'Market Segments' },
+  { href: '/about', label: 'About' },
   {
     href: '/markets',
     label: 'Markets',
@@ -44,7 +43,9 @@ export const navItems: NavItem[] = [
       flag: market.flag,
     })),
   },
-  { href: '/about', label: 'About' },
+  { href: '/solutions', label: 'Solutions' },
+  { href: '/southeast-asia-healthcare-outlook', label: 'SEA Outlook' },
+  { href: '/market-segments', label: 'Market Segments' },
 ];
 
 export const solutions = [
@@ -242,6 +243,7 @@ export function Shell({
   return (
     <>
       <ScrollReveal />
+      <ScrollFx />
       <Header />
       {children}
       {showContactSection ? <ContactSection /> : null}

@@ -119,7 +119,7 @@ export default function MarketsPage() {
             <SectionHeading
               eyebrow="Comparison"
               title="How the seven markets differ."
-              text="A descriptive comparison, not a ranking — each market has a different structure, not a better or worse one."
+              text="A descriptive comparison, not a ranking each market has a different structure, not a better or worse one."
             />
             <ComparisonTable rows={comparisonRows} />
           </div>

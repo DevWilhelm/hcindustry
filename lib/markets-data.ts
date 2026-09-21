@@ -17,6 +17,15 @@ export type CardItem = {
   icon?: LucideIcon;
 };
 
+export type StatItem = {
+  value: number;
+  decimals?: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+  noGrouping?: boolean;
+};
+
 export type MarketCountry = {
   slug: string;
   countryName: string;
@@ -26,6 +35,7 @@ export type MarketCountry = {
   themeLine: string;
   image: string;
   imageAlt: string;
+  keyStats?: StatItem[];
   heroTitle: string;
   heroDescription: string;
   metaTitle: string;
@@ -53,6 +63,11 @@ export const markets: MarketCountry[] = [
     themeLine: 'Advanced Care, Digital Integration and Aging Demand',
     image: 'https://images.unsplash.com/photo-1569288063643-5d29ad64df09?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Marina Bay Sands skyline in Singapore during daytime',
+    keyStats: [
+      { value: 6.11, decimals: 2, suffix: 'M', label: 'Population (2025)' },
+      { value: 20, suffix: '%+', label: 'Residents aged 65 and above' },
+      { value: 100, suffix: '%', label: 'Urban population' },
+    ],
     heroTitle: 'Healthcare Industry and Market Outlook in Singapore',
     heroDescription:
       "Singapore combines a well-resourced public healthcare system with premium private hospitals, a regional referral role for complex specialist care, and one of the region's most developed digital-health and health-data environments. Demand is increasingly shaped by an aging population, a rising chronic-disease burden, and continued investment in medical technology and biomedical research.",
@@ -79,8 +94,8 @@ export const markets: MarketCountry[] = [
       },
     ],
     overview: [
-      "Singapore's healthcare system is structured around a public backbone — polyclinics for primary care and a network of restructured hospitals and specialist centres — financed through a mix of government subsidy, mandatory savings (Medisave), and national insurance (MediShield Life, with MediFund as a safety net). Private hospitals and specialist clinics operate alongside this system, serving resident patients seeking faster or more discretionary access and a steady flow of regional patients seeking advanced or complex care.",
-      'Public and private participation are largely complementary rather than directly competing: public institutions carry the bulk of subsidised, population-level care, while private providers compete on service, specialist depth, and turnaround time. This division shapes how new entrants position themselves — credibility with public-sector referral pathways matters as much as private-sector commercial positioning.',
+      "Singapore's healthcare system is structured around a public backbone polyclinics for primary care and a network of restructured hospitals and specialist centres financed through a mix of government subsidy, mandatory savings (Medisave), and national insurance (MediShield Life, with MediFund as a safety net). Private hospitals and specialist clinics operate alongside this system, serving resident patients seeking faster or more discretionary access and a steady flow of regional patients seeking advanced or complex care.",
+      'Public and private participation are largely complementary rather than directly competing: public institutions carry the bulk of subsidised, population-level care, while private providers compete on service, specialist depth, and turnaround time. This division shapes how new entrants position themselves credibility with public-sector referral pathways matters as much as private-sector commercial positioning.',
       "Demand is increasingly defined by demographics: an aging population is raising demand for chronic-disease management, rehabilitation and long-term or community care, while a smaller but influential segment of patients and referring physicians continues to drive demand for advanced diagnostics, oncology, cardiac and other specialist services that draw on Singapore's role as a regional referral hub.",
       'Market entry considerations differ by segment. Providers and medtech companies typically engage a well-defined regulatory pathway through the Ministry of Health and the Health Sciences Authority, serving a sophisticated buyer base that includes hospital procurement teams and increasingly data-literate clinical staff. Digital-health vendors face a market that expects strong health-data governance and interoperability credentials as a baseline, not a differentiator.',
     ],
@@ -207,6 +222,11 @@ export const markets: MarketCountry[] = [
     themeLine: 'Private Healthcare, Medical Tourism and MedTech Growth',
     image: 'https://images.unsplash.com/photo-1740707590077-ce920ec56441?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Historic clock tower building in Kuala Lumpur, Malaysia',
+    keyStats: [
+      { value: 34.3, decimals: 1, suffix: 'M', label: 'Population (2025)' },
+      { value: 80, suffix: '%', label: 'Urbanisation rate' },
+      { value: 2048, label: 'Projected "aged society" milestone', noGrouping: true },
+    ],
     heroTitle: 'Healthcare Industry and Market Outlook in Malaysia',
     heroDescription:
       "Malaysia pairs a large public healthcare system with an internationally competitive private hospital sector that has built a significant medical-tourism business on a cost-quality positioning. Growth is increasingly concentrated in private-sector capacity, diagnostics, medical-device distribution, and a gradually digitalising healthcare system.",
@@ -229,7 +249,7 @@ export const markets: MarketCountry[] = [
       },
       {
         title: 'Digital Health',
-        text: 'Digital-health adoption is advancing unevenly — private providers are further along on electronic records and telemedicine than much of the public system, where digitalisation is an active policy priority.',
+        text: 'Digital-health adoption is advancing unevenly private providers are further along on electronic records and telemedicine than much of the public system, where digitalisation is an active policy priority.',
       },
     ],
     overview: [
@@ -281,7 +301,7 @@ export const markets: MarketCountry[] = [
     regulatory: [
       'Healthcare facilities, pharmaceuticals and medical devices are regulated primarily through the Ministry of Health, with the National Pharmaceutical Regulatory Agency handling drug registration and the Medical Device Authority handling device registration and post-market surveillance. Private hospitals and clinics require facility licensing under the Private Healthcare Facilities and Services Act.',
       'Digital-health and telemedicine regulation has been an active policy area, with a Digital Healthcare Act establishing legal oversight for telemedicine, AI and electronic medical records as part of a national single-health-record strategy, alongside a more advanced private-sector digital-health landscape.',
-      'Regulatory requirements, timelines and reimbursement conditions can change and vary by product and facility type — specific requirements should be validated directly with the relevant Malaysian authority before market-entry decisions.',
+      'Regulatory requirements, timelines and reimbursement conditions can change and vary by product and facility type specific requirements should be validated directly with the relevant Malaysian authority before market-entry decisions.',
     ],
     digitalHealth: [
       {
@@ -360,6 +380,11 @@ export const markets: MarketCountry[] = [
     themeLine: 'Medical Tourism, Private Care and Aging Healthcare Demand',
     image: 'https://images.unsplash.com/photo-1758115271914-6d5d8bb3d277?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Red tuk-tuks passing a modern building in Bangkok, Thailand',
+    keyStats: [
+      { value: 71.56, decimals: 2, suffix: 'M', label: 'Population (2025)' },
+      { value: 30, suffix: '%', label: 'Population aged 65+ by 2040 (est.)' },
+      { value: 3, label: 'National healthcare financing schemes' },
+    ],
     heroTitle: 'Healthcare Industry and Market Outlook in Thailand',
     heroDescription:
       "Thailand combines near-universal public healthcare coverage with one of Southeast Asia's most internationally established private hospital sectors. Large public capacity, a mature medical-tourism industry, and a fast-aging population are together reshaping demand across acute care, rehabilitation, wellness and digital health.",
@@ -433,7 +458,7 @@ export const markets: MarketCountry[] = [
     ],
     regulatory: [
       'Healthcare facilities, pharmaceuticals and medical devices fall primarily under the Ministry of Public Health, including the Thai Food and Drug Administration for product registration. Private hospital licensing sits with the Department of Health Service Support under the Private Hospital Act, and practitioners must hold valid registration with the relevant Thai professional councils under the Medical Profession Act.',
-      "Public healthcare financing and coverage rules are set through the National Health Security Office (which administers the Universal Coverage Scheme), the Social Security Office, and the Comptroller General's Department for civil-servant benefits — each with distinct rules relevant to any provider or payer partnership. Foreign ownership of healthcare facilities is typically capped under the Foreign Business Act, though Board of Investment promotion can enable full foreign ownership for qualifying projects.",
+      "Public healthcare financing and coverage rules are set through the National Health Security Office (which administers the Universal Coverage Scheme), the Social Security Office, and the Comptroller General's Department for civil-servant benefits each with distinct rules relevant to any provider or payer partnership. Foreign ownership of healthcare facilities is typically capped under the Foreign Business Act, though Board of Investment promotion can enable full foreign ownership for qualifying projects.",
       'As with any market, licensing, registration and reimbursement requirements can change and should be validated directly with the relevant Thai authority before market-entry or product-launch decisions.',
     ],
     digitalHealth: [
@@ -514,6 +539,11 @@ export const markets: MarketCountry[] = [
     themeLine: 'Capacity Expansion, Private Healthcare and Modernization',
     image: 'https://images.unsplash.com/photo-1602646994030-464f98de5e5c?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Aerial view of city buildings in Vietnam during daytime',
+    keyStats: [
+      { value: 102.3, decimals: 1, suffix: 'M', label: 'Population (2025)' },
+      { value: 38, suffix: '%', label: 'Urbanisation rate' },
+      { value: 2, suffix: 'x', label: 'Growth in 65+ population by 2035 (projected)' },
+    ],
     heroTitle: 'Healthcare Industry and Market Outlook in Vietnam',
     heroDescription:
       "Vietnam's healthcare system is expanding under sustained pressure from rising demand, growing insurance coverage, and a public hospital network working to modernise capacity and technology. Private healthcare, diagnostics, medical devices and pharmaceuticals are among the fastest-growing parts of the market as household healthcare spending increases.",
@@ -540,9 +570,9 @@ export const markets: MarketCountry[] = [
       },
     ],
     overview: [
-      "Vietnam's healthcare system is built around a large public hospital network, coordinated by the Ministry of Health, with financing increasingly channelled through Vietnam Social Security's national health-insurance scheme, which covers a large and growing share of the population. Public hospitals — particularly major tertiary centres in Hanoi and Ho Chi Minh City — handle high patient volumes and are frequently the first point of access even for patients who could afford private alternatives.",
+      "Vietnam's healthcare system is built around a large public hospital network, coordinated by the Ministry of Health, with financing increasingly channelled through Vietnam Social Security's national health-insurance scheme, which covers a large and growing share of the population. Public hospitals particularly major tertiary centres in Hanoi and Ho Chi Minh City handle high patient volumes and are frequently the first point of access even for patients who could afford private alternatives.",
       'Private healthcare is a smaller but fast-growing segment, concentrated in the largest cities, where private hospitals and clinics are expanding to serve a rising middle class willing to pay for shorter wait times, higher service standards, or specialist access not readily available in crowded public facilities.',
-      'Demand growth reflects both rising household healthcare spending and a shifting disease burden — from a historical focus on infectious disease and maternal-child health toward increasing chronic-disease management, driven by an aging population and rising rates of conditions such as diabetes and cardiovascular disease.',
+      'Demand growth reflects both rising household healthcare spending and a shifting disease burden from a historical focus on infectious disease and maternal-child health toward increasing chronic-disease management, driven by an aging population and rising rates of conditions such as diabetes and cardiovascular disease.',
       "Market entry generally requires working with the Ministry of Health for licensing and registration, alongside an understanding of Vietnam Social Security's insurance and reimbursement framework, since a large share of hospital revenue and patient volume flows through public insurance channels even where private providers are involved.",
     ],
     demandDrivers: [
@@ -588,13 +618,13 @@ export const markets: MarketCountry[] = [
     regulatory: [
       'Healthcare facilities, pharmaceuticals and medical devices are regulated primarily through the Ministry of Health under the Law on Medical Examination and Treatment, which introduced a service-capability-based facility licensing model and a national competency examination for clinical practice licensing. Foreign entrants typically need local partners to navigate drug and device registration pathways.',
       "Vietnam Social Security's health-insurance framework (Social Health Insurance, or BHYT) governs a large share of reimbursement and procurement decisions, making it a central consideration for any provider, pharmaceutical or device strategy. Healthcare remains a specially encouraged investment sector, with 100% foreign ownership permitted in healthcare facilities.",
-      'Foreign-investment conditions, licensing timelines and reimbursement rules can change and vary by facility type and locality — specific requirements should be validated directly with the relevant Vietnamese authority before market-entry decisions.',
+      'Foreign-investment conditions, licensing timelines and reimbursement rules can change and vary by facility type and locality specific requirements should be validated directly with the relevant Vietnamese authority before market-entry decisions.',
     ],
     digitalHealth: [
       {
         icon: Building2,
         title: 'Hospital Modernisation',
-        text: 'Public hospital modernisation initiatives are extending electronic medical records — already adopted by a large majority of provincial hospitals — and digital infrastructure, with progress concentrated in major cities.',
+        text: 'Public hospital modernisation initiatives are extending electronic medical records already adopted by a large majority of provincial hospitals and digital infrastructure, with progress concentrated in major cities.',
       },
       {
         icon: Network,
@@ -668,6 +698,11 @@ export const markets: MarketCountry[] = [
     themeLine: 'Healthcare Access, Capacity Expansion and Digital Scale',
     image: 'https://images.unsplash.com/photo-1696832204235-5676c7ee9105?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'High-rise buildings along the waterfront in Indonesia',
+    keyStats: [
+      { value: 287, suffix: 'M+', label: 'Population (2025)' },
+      { value: 17000, suffix: '+', label: 'Islands across the archipelago' },
+      { value: 60, suffix: '%', label: 'Urbanisation rate' },
+    ],
     heroTitle: 'Healthcare Industry and Market Outlook in Indonesia',
     heroDescription:
       "Indonesia's healthcare market is defined by scale and geography: a very large population covered through the national BPJS Kesehatan insurance scheme, spread across thousands of islands with uneven provider density. Expanding hospital capacity, growing private healthcare, and digital health are central to closing access gaps between urban centres and outer regions.",
@@ -695,9 +730,9 @@ export const markets: MarketCountry[] = [
     ],
     overview: [
       'Jaminan Kesehatan Nasional (JKN), the national health-insurance programme administered by BPJS Kesehatan, covers a very large share of the population and is among the largest single-payer schemes globally by enrolment. Primary care is delivered through a national network of Puskesmas community health centres, with public and increasingly private hospitals providing secondary and tertiary care.',
-      "Indonesia's geography — more than seventeen thousand islands — makes provider density and access highly uneven. Java's major cities, particularly Jakarta, concentrate the country's most advanced hospital capacity and private healthcare investment, while many outer provinces face materially lower provider density and longer travel times to specialist care.",
+      "Indonesia's geography more than seventeen thousand islands makes provider density and access highly uneven. Java's major cities, particularly Jakarta, concentrate the country's most advanced hospital capacity and private healthcare investment, while many outer provinces face materially lower provider density and longer travel times to specialist care.",
       'Private hospital groups are expanding, particularly in and around major urban centres, serving BPJS patients seeking faster access alongside a growing base of private-pay and corporate-insured patients. Diagnostics and medical-device distribution are similarly concentrated in urban markets but expanding outward as hospital networks grow.',
-      "Given Indonesia's scale and geographic fragmentation, digital health is treated less as a convenience layer and more as core access infrastructure — supporting telemedicine, referral coordination and data-sharing across a system where physical provider density alone cannot close access gaps. Market entry typically requires engagement with BPJS Kesehatan's reimbursement framework alongside the Ministry of Health and BPOM's regulatory processes.",
+      "Given Indonesia's scale and geographic fragmentation, digital health is treated less as a convenience layer and more as core access infrastructure supporting telemedicine, referral coordination and data-sharing across a system where physical provider density alone cannot close access gaps. Market entry typically requires engagement with BPJS Kesehatan's reimbursement framework alongside the Ministry of Health and BPOM's regulatory processes.",
     ],
     demandDrivers: [
       {
@@ -741,8 +776,8 @@ export const markets: MarketCountry[] = [
     ],
     regulatory: [
       'Healthcare facilities, pharmaceuticals and medical devices are regulated primarily through the Ministry of Health and BPOM (the National Agency of Drug and Food Control), with facility licensing processed through Indonesia’s Online Single Submission system and hospitals classified by service capability. Health Law No. 17 of 2023 consolidated Indonesia’s healthcare legal framework, liberalised foreign participation in hospitals, and simplified licensing for foreign medical specialists.',
-      "BPJS Kesehatan's reimbursement framework is central to hospital and provider economics, since a very large share of patient volume nationally is BPJS-funded — understanding its tariff and coverage structure is typically a prerequisite for provider and payer strategy.",
-      "Indonesia's health-sector regulatory framework continues to evolve — specific licensing, foreign-investment and reimbursement requirements should be validated directly with the relevant Indonesian authority before market-entry decisions.",
+      "BPJS Kesehatan's reimbursement framework is central to hospital and provider economics, since a very large share of patient volume nationally is BPJS-funded understanding its tariff and coverage structure is typically a prerequisite for provider and payer strategy.",
+      "Indonesia's health-sector regulatory framework continues to evolve specific licensing, foreign-investment and reimbursement requirements should be validated directly with the relevant Indonesian authority before market-entry decisions.",
     ],
     digitalHealth: [
       {
@@ -848,9 +883,9 @@ export const markets: MarketCountry[] = [
       },
     ],
     overview: [
-      'Healthcare delivery in the Philippines involves both public and private tracks. Public facilities and PhilHealth, the national health-insurance corporation, provide a coverage and access baseline, while a substantial private hospital and clinic sector — concentrated in Metro Manila and other major cities — serves patients able to pay out of pocket or through private insurance and employer-sponsored benefits.',
+      'Healthcare delivery in the Philippines involves both public and private tracks. Public facilities and PhilHealth, the national health-insurance corporation, provide a coverage and access baseline, while a substantial private hospital and clinic sector concentrated in Metro Manila and other major cities serves patients able to pay out of pocket or through private insurance and employer-sponsored benefits.',
       'Healthcare access is not evenly distributed across the archipelago. Urban centres, particularly Metro Manila, concentrate the most advanced private hospital capacity and specialist care, while many provincial and island communities rely more heavily on public facilities and rural health units, with longer travel times to specialist or tertiary care.',
-      'Digital health and telemedicine have grown as tools to address this geographic gap, extending consultation and referral access to areas with limited nearby specialist density — a pattern broadly consistent with how digital health is being used across other geographically dispersed Southeast Asian markets.',
+      'Digital health and telemedicine have grown as tools to address this geographic gap, extending consultation and referral access to areas with limited nearby specialist density a pattern broadly consistent with how digital health is being used across other geographically dispersed Southeast Asian markets.',
       "The healthcare research base available to this site is currently less developed for the Philippines than for several other Southeast Asian markets covered here. This page is intentionally kept qualitative rather than citing specific figures, regulatory provisions or market-size estimates; organizations evaluating the Philippine healthcare market should treat this as a starting orientation and validate current conditions, regulatory requirements and data directly with primary sources before making market-entry or investment decisions.",
     ],
     demandDrivers: [
@@ -942,7 +977,7 @@ export const markets: MarketCountry[] = [
       },
       {
         title: 'Data and Research Depth',
-        text: "Current, verified market data for the Philippine healthcare sector is more limited within this site's research base than for several neighbouring markets — figures and regulatory specifics should be independently validated before decisions are made.",
+        text: "Current, verified market data for the Philippine healthcare sector is more limited within this site's research base than for several neighbouring markets figures and regulatory specifics should be independently validated before decisions are made.",
       },
     ],
     relatedSegmentTitles: [
@@ -989,7 +1024,7 @@ export const markets: MarketCountry[] = [
     overview: [
       'Healthcare accessibility and provider capacity remain important considerations for any organization evaluating this market. Current operating conditions can vary significantly, and market conditions and data referenced elsewhere may not reflect the present situation. This page presents a general structural orientation rather than specific statistics, market-size estimates, or regulatory detail.',
       "Myanmar's healthcare system includes public hospitals and clinics operated under the Ministry of Health and Sports, alongside a private healthcare sector that varies in scale and capacity by region. Provider density and healthcare infrastructure are generally more developed in larger urban centres than in many other parts of the country, and distribution of medicines, medical devices and diagnostic capacity broadly follows the same pattern.",
-      'Given current data limitations and the pace at which market conditions can change, organizations considering the Myanmar healthcare market should treat this page as a starting reference only, and commission current, market-specific validation — including direct engagement with relevant authorities and on-the-ground partners — before making operational or investment decisions.',
+      'Given current data limitations and the pace at which market conditions can change, organizations considering the Myanmar healthcare market should treat this page as a starting reference only, and commission current, market-specific validation including direct engagement with relevant authorities and on-the-ground partners before making operational or investment decisions.',
     ],
     demandDrivers: [
       {

@@ -14,6 +14,7 @@ import {
   segments,
   solutions,
 } from '@/components/site';
+import { SectionNav } from '@/components/section-nav';
 import { getInsightBySlug, insights, otherInsights } from '@/lib/insights-data';
 import { getMarketBySlug } from '@/lib/markets-data';
 import { SITE_URL } from '@/lib/site-config';
@@ -137,9 +138,17 @@ export default async function InsightArticlePage({
           </div>
         </section>
 
+        <SectionNav
+          items={insight.sections.map((section) => ({
+            id: slugify(section.title),
+            label: section.title,
+          }))}
+        />
+
         {insight.sections.map((section, index) => (
           <section
             className={index % 2 === 0 ? 'section' : 'section muted-section'}
+            id={slugify(section.title)}
             key={section.title}
           >
             <div className="container narrow">

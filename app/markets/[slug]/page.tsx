@@ -16,10 +16,24 @@ import {
   segments,
   solutions,
 } from '@/components/site';
+import { SectionNav } from '@/components/section-nav';
+import { StatRow } from '@/components/stat-counter';
 import { getMarketBySlug, markets, otherMarkets } from '@/lib/markets-data';
 import { insights } from '@/lib/insights-data';
 import { SITE_URL } from '@/lib/site-config';
 import { slugify } from '@/lib/utils';
+
+const MARKET_NAV_ITEMS = [
+  { id: 'at-a-glance', label: 'At a Glance' },
+  { id: 'overview', label: 'Overview' },
+  { id: 'demand', label: 'Demand' },
+  { id: 'ecosystem', label: 'Ecosystem' },
+  { id: 'providers', label: 'Providers' },
+  { id: 'regulatory', label: 'Regulatory' },
+  { id: 'digital-health', label: 'Digital Health' },
+  { id: 'investment', label: 'Investment' },
+  { id: 'considerations', label: 'Considerations' },
+];
 
 export function generateStaticParams() {
   return markets.map((market) => ({ slug: market.slug }));
@@ -147,6 +161,16 @@ export default async function CountryMarketPage({
           cta={{ label: 'Discuss a Research Need', href: '/contact' }}
         />
 
+        {market.keyStats ? (
+          <section className="section stat-section">
+            <div className="container">
+              <StatRow stats={market.keyStats} />
+            </div>
+          </section>
+        ) : null}
+
+        <SectionNav items={MARKET_NAV_ITEMS} />
+
         <section className="section market-photo-section">
           <div className="container narrow">
             <ImagePanel
@@ -157,7 +181,7 @@ export default async function CountryMarketPage({
           </div>
         </section>
 
-        <section className="section">
+        <section className="section" id="at-a-glance">
           <div className="container">
             <SectionHeading
               eyebrow="At a glance"
@@ -167,7 +191,7 @@ export default async function CountryMarketPage({
           </div>
         </section>
 
-        <section className="section muted-section">
+        <section className="section muted-section" id="overview">
           <div className="container narrow">
             <SectionHeading title={`Understanding Healthcare in ${withArticle(market.countryName)}`} />
             {market.overview.map((paragraph) => (
@@ -176,7 +200,7 @@ export default async function CountryMarketPage({
           </div>
         </section>
 
-        <section className="section">
+        <section className="section" id="demand">
           <div className="container">
             <SectionHeading
               eyebrow="Demand"
@@ -187,7 +211,7 @@ export default async function CountryMarketPage({
           </div>
         </section>
 
-        <section className="section muted-section">
+        <section className="section muted-section" id="ecosystem">
           <div className="container">
             <SectionHeading
               eyebrow="System view"
@@ -198,14 +222,14 @@ export default async function CountryMarketPage({
           </div>
         </section>
 
-        <section className="section">
+        <section className="section" id="providers">
           <div className="container">
             <SectionHeading title="Healthcare Provider Landscape" />
             <CardGrid items={market.providerLandscape} columns={providerColumns} />
           </div>
         </section>
 
-        <section className="section muted-section">
+        <section className="section muted-section" id="regulatory">
           <div className="container narrow">
             <SectionHeading title="Regulatory and Market Access Environment" />
             {market.regulatory.map((paragraph) => (
@@ -214,14 +238,14 @@ export default async function CountryMarketPage({
           </div>
         </section>
 
-        <section className="section">
+        <section className="section" id="digital-health">
           <div className="container">
             <SectionHeading title="Digital Health and Healthcare Technology" />
             <CardGrid items={market.digitalHealth} columns={digitalColumns} />
           </div>
         </section>
 
-        <section className="section muted-section">
+        <section className="section muted-section" id="investment">
           <div className="container">
             <SectionHeading
               eyebrow="Investment"
@@ -231,7 +255,7 @@ export default async function CountryMarketPage({
           </div>
         </section>
 
-        <section className="section">
+        <section className="section" id="considerations">
           <div className="container">
             <SectionHeading eyebrow="Risk view" title="Market Considerations" />
             <CardGrid items={market.considerations} columns={considerationColumns} />

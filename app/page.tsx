@@ -57,8 +57,8 @@ export default function Home() {
               </div>
             </div>
             <ImagePanel
-              src="https://images.unsplash.com/photo-1653566031535-bcf33e1c2893?auto=format&fit=crop&w=1200&q=80"
-              alt="Healthcare and strategy team reviewing regional market data around a table"
+              src="https://images.unsplash.com/photo-1531496244015-67bec2b9952b?auto=format&fit=crop&w=1200&q=80"
+              alt="Two Southeast Asian analysts reviewing healthcare market data together"
               caption="Strategy and research teams working through Southeast Asia healthcare data."
             />
           </div>

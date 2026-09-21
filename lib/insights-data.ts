@@ -59,8 +59,8 @@ export const insights: Insight[] = [
       {
         title: 'Regulation, Payers And Where Value Is Concentrating',
         paragraphs: [
-          "Regulatory frameworks across the region are evolving in a broadly similar direction: stronger facility and professional licensing, more active digital-health and data-governance oversight, and — in several markets — new legislation specifically addressing telemedicine and AI in clinical settings. Payer structures remain the more durable point of difference: national insurance schemes (Singapore's MediShield Life, Thailand's Universal Coverage Scheme, Vietnam's Social Health Insurance, Indonesia's BPJS Kesehatan) each shape provider economics differently, and any regional strategy needs to be built market by market rather than applied uniformly.",
-          "Investment and partnership interest is concentrating around aging and chronic care, diagnostics, digital-health platforms with genuine national reach, and medical-device distribution — themes explored in more depth on each of this site's individual country pages.",
+          "Regulatory frameworks across the region are evolving in a broadly similar direction: stronger facility and professional licensing, more active digital-health and data-governance oversight, and in several markets new legislation specifically addressing telemedicine and AI in clinical settings. Payer structures remain the more durable point of difference: national insurance schemes (Singapore's MediShield Life, Thailand's Universal Coverage Scheme, Vietnam's Social Health Insurance, Indonesia's BPJS Kesehatan) each shape provider economics differently, and any regional strategy needs to be built market by market rather than applied uniformly.",
+          "Investment and partnership interest is concentrating around aging and chronic care, diagnostics, digital-health platforms with genuine national reach, and medical-device distribution themes explored in more depth on each of this site's individual country pages.",
         ],
       },
     ],
@@ -138,8 +138,8 @@ export const insights: Insight[] = [
       {
         title: 'Telemedicine As An Access Tool, Not Just A Convenience',
         paragraphs: [
-          "In geographically dispersed or unevenly resourced markets — Indonesia's more than seventeen thousand islands, the Philippines' archipelago, and provincial Vietnam and Thailand — telemedicine is used specifically to extend specialist consultation into areas with limited local provider density, rather than only as a convenience layer for urban patients. This access-equity framing is a genuinely distinct use case from telehealth's role in more provider-dense markets like Singapore.",
-          'AI-enabled diagnosis and decision support — faster image analysis, triage, and clinical decision-making — and automation of administrative, laboratory and pharmacy workflows are the most consistently cited technology themes across the region’s hospital systems, aimed at improving productivity and diagnostic consistency amid persistent clinical workforce shortages.',
+          "In geographically dispersed or unevenly resourced markets Indonesia's more than seventeen thousand islands, the Philippines' archipelago, and provincial Vietnam and Thailand — telemedicine is used specifically to extend specialist consultation into areas with limited local provider density, rather than only as a convenience layer for urban patients. This access-equity framing is a genuinely distinct use case from telehealth's role in more provider-dense markets like Singapore.",
+          'AI-enabled diagnosis and decision support faster image analysis, triage, and clinical decision-making and automation of administrative, laboratory and pharmacy workflows are the most consistently cited technology themes across the region’s hospital systems, aimed at improving productivity and diagnostic consistency amid persistent clinical workforce shortages.',
         ],
       },
       {
@@ -161,7 +161,7 @@ export const insights: Insight[] = [
     image: 'https://images.unsplash.com/photo-1758115271914-6d5d8bb3d277?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Red tuk-tuks passing a modern building in Bangkok, Thailand',
     summary:
-      "How Thailand's near-universal public coverage and internationally established private hospital sector create two distinct — and differently pressured — healthcare economies.",
+      "How Thailand's near-universal public coverage and internationally established private hospital sector create two distinct and differently pressured healthcare economies.",
     metaTitle:
       "Thailand's Universal Coverage Scheme And Its Two-Speed Healthcare System | HealthCare Industry Research",
     metaDescription:
@@ -171,21 +171,21 @@ export const insights: Insight[] = [
       {
         title: 'A Coverage Model Few Regional Peers Match',
         paragraphs: [
-          "Thailand's Universal Coverage Scheme, administered by the National Health Security Office, reaches tens of millions of citizens and — together with the Social Security Scheme for employees and the Civil Servant Medical Benefit Scheme — gives the large majority of the population access to public healthcare. This breadth of coverage is unusual by regional standards and reflects a long-standing policy commitment to healthcare as a strategic national sector.",
+          "Thailand's Universal Coverage Scheme, administered by the National Health Security Office, reaches tens of millions of citizens and together with the Social Security Scheme for employees and the Civil Servant Medical Benefit Scheme — gives the large majority of the population access to public healthcare. This breadth of coverage is unusual by regional standards and reflects a long-standing policy commitment to healthcare as a strategic national sector.",
           'That commitment continues into recent budget planning: public healthcare spending has been on a sustained upward path, with healthcare’s share of GDP trending higher as the government maintains public financing as the backbone of the system, even amid periods of political transition that have, at times, slowed budget disbursement and approval timelines.',
         ],
       },
       {
         title: 'Two Systems, Two Sets Of Pressures',
         paragraphs: [
-          'Public and private healthcare in Thailand increasingly operate as distinct economies rather than a single continuum. Public hospitals under the Ministry of Public Health carry the volume — provincial hospitals through major tertiary centres — while a small number of internationally accredited private hospital groups compete on specialist depth, service standards, and international-patient trust.',
-          'Capacity utilisation reflects this split: public hospital occupancy has run meaningfully higher than private occupancy in recent reporting, alongside softer middle-income demand for non-essential private care — a pattern consistent with rising treatment costs pushing some price-sensitive patients back toward the public system.',
+          'Public and private healthcare in Thailand increasingly operate as distinct economies rather than a single continuum. Public hospitals under the Ministry of Public Health carry the volume provincial hospitals through major tertiary centres while a small number of internationally accredited private hospital groups compete on specialist depth, service standards, and international-patient trust.',
+          'Capacity utilisation reflects this split: public hospital occupancy has run meaningfully higher than private occupancy in recent reporting, alongside softer middle-income demand for non-essential private care a pattern consistent with rising treatment costs pushing some price-sensitive patients back toward the public system.',
         ],
       },
       {
         title: 'Cost Pressure Is The Defining Near-Term Story',
         paragraphs: [
-          'Medical-cost inflation in Thailand has been running well above headline consumer inflation as of 2026, and insurers have responded by shifting toward higher co-payment structures — a direct reshaping of how patients access and pay for private care. For providers and payers, this affordability gap is arguably the most consequential near-term dynamic in the market, more immediate than any single regulatory change.',
+          'Medical-cost inflation in Thailand has been running well above headline consumer inflation as of 2026, and insurers have responded by shifting toward higher co-payment structures a direct reshaping of how patients access and pay for private care. For providers and payers, this affordability gap is arguably the most consequential near-term dynamic in the market, more immediate than any single regulatory change.',
           "At the same time, structural demand keeps expanding: an aging population, Thailand's continued positioning as a regional medical-tourism hub, and rising chronic-disease prevalence are all pushing healthcare spending growth above broader GDP growth — a gap that is widening, not narrowing, over the medium term.",
         ],
       },
@@ -209,7 +209,7 @@ export const insights: Insight[] = [
     image: 'https://images.unsplash.com/photo-1765896387398-1e1ae8d2eb85?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Nurse in scrubs leaning toward an elderly person in a chair',
     summary:
-      "Singapore entered super-aged status in 2026. Here's how Healthier SG, MediShield reform, and public capacity expansion are responding — and where that leaves the aging-care investment case.",
+      "Singapore entered super-aged status in 2026. Here's how Healthier SG, MediShield reform, and public capacity expansion are responding and where that leaves the aging-care investment case.",
     metaTitle:
       "Singapore's Super-Aged Transition And The Aging-Care Investment Case | HealthCare Industry Research",
     metaDescription:
@@ -240,7 +240,7 @@ export const insights: Insight[] = [
       {
         title: 'Where The Investment Case Concentrates',
         paragraphs: [
-          "Long-term and step-down care capacity, home-based and community-care models, and clinical AI or productivity tools that offset healthcare workforce constraints are the most consistently identifiable investment themes as Singapore's demographic transition plays out. Singapore's data-governance maturity — anchored by the National Electronic Health Record and the Health Information Act — makes it a natural early-adoption market for exactly this kind of digitally enabled aging-care model.",
+          "Long-term and step-down care capacity, home-based and community-care models, and clinical AI or productivity tools that offset healthcare workforce constraints are the most consistently identifiable investment themes as Singapore's demographic transition plays out. Singapore's data-governance maturity — anchored by the National Electronic Health Record and the Health Information Act makes it a natural early-adoption market for exactly this kind of digitally enabled aging-care model.",
           "The constraint to weigh against this opportunity is workforce, not demand: nursing and long-term-care staffing capacity is the recurring limiting factor cited across Singapore's healthcare system, and is likely to shape how quickly new aging-care capacity can actually be delivered.",
         ],
       },
@@ -335,7 +335,7 @@ export const insights: Insight[] = [
         title: 'The Practical Takeaway',
         paragraphs: [
           'Specialist-physician shortages outside major cities remain a persistent constraint that digital infrastructure alone cannot fully solve — SATUSEHAT can extend a consultation, but it cannot substitute for the physical presence of specialist care in an emergency or complex-treatment scenario. Any Indonesia strategy premised primarily on digital reach should account for this limit rather than treating connectivity as a full substitute for physical capacity.',
-          "BPJS Kesehatan's reimbursement framework remains the central commercial variable for any provider or payer strategy in Indonesia, given how large a share of national patient volume is BPJS-funded — understanding its tariff and coverage structure is a prerequisite for market entry, digital or otherwise.",
+          "BPJS Kesehatan's reimbursement framework remains the central commercial variable for any provider or payer strategy in Indonesia, given how large a share of national patient volume is BPJS-funded understanding its tariff and coverage structure is a prerequisite for market entry, digital or otherwise.",
         ],
       },
     ],
