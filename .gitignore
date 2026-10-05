@@ -32,3 +32,6 @@ yarn-error.log*
 # deployment and generated files
 next-env.d.ts
 /dist/
+
+# allow the committed env template
+!.env.example

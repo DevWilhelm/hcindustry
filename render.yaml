@@ -1,13 +1,19 @@
 # Render Blueprint — https://render.com/docs/blueprint-spec
-# Static site: `npm run build` prerenders every route into dist/client/.
+# Node web service: serves the prerendered pages and the /api/contact route.
 # Deploy: push to GitHub, then "New +" > "Blueprint" in Render.
-# Render serves /about from about.html automatically and uses 404.html for misses.
+# RESEND_API_KEY is entered in the Render dashboard (sync: false), never committed.
 services:
   - type: web
     name: healthcare-industry
-    runtime: static
+    runtime: node
     buildCommand: npm ci && npm run build
-    staticPublishPath: ./dist/client
+    startCommand: npm start
     envVars:
       - key: NODE_VERSION
         value: 22.13.0
+      - key: RESEND_API_KEY
+        sync: false
+      - key: CONTACT_NOTIFICATION_TO
+        value: websiteinquiries@sagasiaconsulting.com
+      - key: CONTACT_NOTIFICATION_FROM
+        value: websiteinquiries@sagasiaconsulting.com

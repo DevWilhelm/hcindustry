@@ -1,29 +1,44 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type SyntheticEvent } from 'react';
 import { CheckCircle2 } from 'lucide-react';
+import { inquiryTypes } from '@/lib/inquiry-types';
 
-const inquiryTypes = [
-  'Market research',
-  'Digital health strategy',
-  'Provider landscape',
-  'Aging care opportunity',
-  'Investment research',
-  'Partnership inquiry',
-  'Other',
-];
+type Status = 'idle' | 'sending' | 'sent' | 'error';
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>('idle');
+  const [error, setError] = useState('');
+
+  async function handleSubmit(event: SyntheticEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    setStatus('sending');
+    setError('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      const result = (await response.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
+
+      if (!response.ok || !result?.ok) {
+        setError(result?.error ?? 'Something went wrong. Please try again.');
+        setStatus('error');
+        return;
+      }
+
+      form.reset();
+      setStatus('sent');
+    } catch {
+      setError('Network error. Please check your connection and try again.');
+      setStatus('error');
+    }
+  }
 
   return (
-    <form
-      className="contact-form"
-      onSubmit={(event) => {
-        event.preventDefault();
-        setSubmitted(true);
-      }}
-    >
+    <form className="contact-form" method="post" action="/api/contact" onSubmit={handleSubmit}>
       <div className="field-grid">
         <label>
           <span>Name</span>
@@ -61,17 +76,28 @@ export function ContactForm() {
           required
           name="message"
           rows={5}
+          maxLength={5000}
           placeholder="Tell us what market, segment, or strategic question you are exploring."
         />
       </label>
-      <button type="submit" className="primary-button">
-        Send inquiry
+      <div className="honeypot" aria-hidden="true">
+        <label>
+          Company website
+          <input name="companyWebsite" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
+      <button type="submit" className="primary-button" disabled={status === 'sending'}>
+        {status === 'sending' ? 'Sending...' : 'Send inquiry'}
       </button>
-      {submitted ? (
+      {status === 'sent' ? (
         <p className="form-success" role="status">
           <CheckCircle2 size={18} />
-          Thanks. This launch version stores no data, but the form flow is ready
-          for email or lead-system integration.
+          Thank you. Your inquiry has been received and our team will be in touch.
+        </p>
+      ) : null}
+      {status === 'error' ? (
+        <p className="form-error" role="alert">
+          {error}
         </p>
       ) : null}
     </form>
